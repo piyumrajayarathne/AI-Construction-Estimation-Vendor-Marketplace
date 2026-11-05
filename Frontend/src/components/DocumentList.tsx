@@ -41,11 +41,11 @@ export function DocumentList({ projectId, documents }: DocumentListProps) {
                   {doc.file_name}
                 </Link>
                 <p className="mt-0.5 text-xs text-muted">
-                  {documentKindLabel(doc.document_kind)} Â· {doc.file_type} Â·
+                  {documentKindLabel(doc.document_kind)} · {doc.file_type} ·
                   uploaded {formatDateTime(doc.uploaded_at)}
                 </p>
                 {errors.length > 0 ? (
-                  <p className="mt-1 text-xs text-danger">{errors.join(" Â· ")}</p>
+                  <p className="mt-1 text-xs text-danger">{errors.join(" · ")}</p>
                 ) : null}
               </div>
               <div className="flex flex-wrap items-center gap-2">

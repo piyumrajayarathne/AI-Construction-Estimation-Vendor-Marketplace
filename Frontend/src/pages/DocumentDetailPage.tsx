@@ -1,4 +1,4 @@
-﻿import type { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FileWarning } from "lucide-react";
 import { ErrorAlert } from "../components/ErrorAlert";
@@ -25,7 +25,6 @@ export function DocumentDetailPage() {
   const isProcessed = doc?.status === "processed";
   const chunksQuery = useDocumentChunks(pid, did, Boolean(isProcessed));
   const errors = doc ? getDocumentErrors(doc) : [];
-
   return (
     <div>
       {documentQuery.isLoading ? (
@@ -70,24 +69,22 @@ export function DocumentDetailPage() {
               }
             />
             <Info label="Uploaded" value={formatDateTime(doc.uploaded_at)} />
-            <Info label="File type" value={doc.file_type || "â€”"} />
+            <Info label="File type" value={doc.file_type || "-"} />
             <Info
               label="Pages"
-              value={doc.page_count != null ? String(doc.page_count) : "â€”"}
+              value={doc.page_count != null ? String(doc.page_count) : "—"}
             />
             <Info
               label="Document ID"
               value={<span className="font-mono text-xs">{toId(doc.id)}</span>}
             />
           </dl>
-
           {doc.document_kind === "existing_boq" ? (
             <div className="mb-6 rounded-2xl border border-line bg-soft px-4 py-3 text-sm text-ink">
               This file is an <strong>existing BOQ</strong> uploaded as an input.
               AURABUILD does not generate a BOQ from it.
             </div>
           ) : null}
-
           {errors.length > 0 ? (
             <div className="mb-6">
               <ErrorAlert
@@ -96,7 +93,6 @@ export function DocumentDetailPage() {
               />
             </div>
           ) : null}
-
           {doc.status === "pending" || doc.status === "processing" ? (
             <div className="rounded-2xl border border-[#BFD9EE] bg-[#EAF4FB] px-4 py-6 text-sm text-information">
               <LoadingState
@@ -113,7 +109,6 @@ export function DocumentDetailPage() {
               </p>
             </div>
           ) : null}
-
           {doc.status === "failed" && errors.length === 0 ? (
             <div className="rounded-2xl border border-[#F1C0C0] bg-[#FBE9E9] px-4 py-6 text-sm text-danger">
               <div className="flex items-center gap-2 font-semibold">
@@ -126,7 +121,6 @@ export function DocumentDetailPage() {
               </p>
             </div>
           ) : null}
-
           {isProcessed ? (
             chunksQuery.isLoading ? (
               <LoadingState label="Loading extracted chunks" />
@@ -164,7 +158,7 @@ export function DocumentDetailPage() {
                         <div className="mb-2 flex flex-wrap items-center gap-2 text-xs text-muted">
                           <span className="font-semibold text-ink">
                             Chunk {chunk.chunk_index}
-                            {page != null ? ` Â· Page ${page}` : ""}
+                            {page != null ? `· Page ${page}` : ""}
                           </span>
                           {confidence != null ? (
                             <span className="rounded-full bg-[#F0E9F8] px-2 py-0.5 font-medium text-secondary">
@@ -182,7 +176,7 @@ export function DocumentDetailPage() {
                           )}
                         </div>
                         <pre className="whitespace-pre-wrap font-sans text-sm leading-6 text-ink">
-                          {chunk.content || "â€”"}
+                          {chunk.content || "—"}
                         </pre>
                       </li>
                     );
@@ -195,7 +189,6 @@ export function DocumentDetailPage() {
     </div>
   );
 }
-
 function Info({ label, value }: { label: string; value: ReactNode }) {
   return (
     <div>
@@ -206,5 +199,3 @@ function Info({ label, value }: { label: string; value: ReactNode }) {
     </div>
   );
 }
-
-

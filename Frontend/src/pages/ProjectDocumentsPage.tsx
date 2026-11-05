@@ -42,7 +42,7 @@ export function ProjectDocumentsPage() {
       <PageHeader
         eyebrow="Documents"
         title={`${projectQuery.data.name} documents`}
-        description="Upload drawings, specifications, existing BOQs, and other PDFs. Existing BOQs are inputs â€” they are not generated here."
+        description="Upload drawings, specifications, existing BOQs, and other PDFs. Existing BOQs are inputs - they are not generated here."
       />
       <ProjectTabs projectId={id} />
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1.4fr)_minmax(18rem,0.8fr)]">
@@ -50,7 +50,7 @@ export function ProjectDocumentsPage() {
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-semibold text-ink">Uploaded files</h2>
             {documentsQuery.isFetching && !documentsQuery.isLoading ? (
-              <span className="text-xs text-muted">Refreshing statusâ€¦</span>
+              <span className="text-xs text-muted">Refreshing status...</span>
             ) : null}
           </div>
           {documentsQuery.isLoading ? (

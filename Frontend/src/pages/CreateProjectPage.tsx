@@ -67,7 +67,7 @@ export function CreateProjectPage() {
             required
             value={name}
             onChange={(event) => setName(event.target.value)}
-            placeholder="Benchmark Residences â€” Block A masonry"
+            placeholder="Benchmark Residences - Block A masonry"
           />
         </Field>
         <Field label="Location" htmlFor="location">

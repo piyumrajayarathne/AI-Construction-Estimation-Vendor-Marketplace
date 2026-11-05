@@ -12,7 +12,7 @@ const MAX_BYTES = 25 * 1024 * 1024;
 const KINDS: { id: DocumentKind; label: string; hint: string }[] = [
   { id: "drawing", label: "Drawing", hint: "Plans, elevations, details" },
   { id: "specification", label: "Specification", hint: "Written specs" },
-  { id: "existing_boq", label: "Existing BOQ", hint: "Input only â€” not generated" },
+  { id: "existing_boq", label: "Existing BOQ", hint: "Input only - not generated" },
   { id: "other", label: "Other PDF", hint: "Supporting PDF" },
 ];
 
@@ -75,7 +75,7 @@ export function DocumentUploader({ projectId }: DocumentUploaderProps) {
         >
           {KINDS.map((option) => (
             <option key={option.id} value={option.id}>
-              {option.label} â€” {option.hint}
+              {option.label} - {option.hint}
             </option>
           ))}
         </SelectInput>
@@ -112,7 +112,7 @@ export function DocumentUploader({ projectId }: DocumentUploaderProps) {
         </Button>
       </label>
       {upload.isPending ? (
-        <p className="rounded-xl border border-[#CDE5F4] bg-[#EAF4FB] px-4 py-3 text-sm font-medium text-information">Uploading documentâ€¦</p>
+        <p className="rounded-xl border border-[#CDE5F4] bg-[#EAF4FB] px-4 py-3 text-sm font-medium text-information">Uploading document...</p>
       ) : null}
       {localError ? <ErrorAlert title="Upload blocked" message={localError} /> : null}
       {upload.isError ? (

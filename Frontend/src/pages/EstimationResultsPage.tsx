@@ -1,4 +1,4 @@
-﻿import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Button } from "../components/Button";
 import { ErrorAlert } from "../components/ErrorAlert";
 import { LoadingState } from "../components/LoadingState";
@@ -39,7 +39,7 @@ export function EstimationResultsPage() {
         <>
           <PageHeader
             eyebrow="Masonry estimation"
-            title={`Masonry Estimation Results â€” ${projectQuery.data.name}`}
+            title={`Masonry Estimation Results - ${projectQuery.data.name}`}
             description="Residential masonry takeoff for this project. Quantities and rates are shown only when an estimation engine returns them. This page never invents figures."
           />
           <ProjectTabs projectId={id} />
@@ -103,7 +103,7 @@ export function EstimationResultsPage() {
                     </p>
                     <p className="text-xs text-muted">
                       Line items appear only if the engine returns them. Empty
-                      means unavailable â€” not a generated BOQ.
+                      means unavailable — not a generated BOQ.
                     </p>
                   </div>
                   <Button
@@ -151,15 +151,15 @@ export function EstimationResultsPage() {
                           <tr key={`${line.description}-${index}`} className="border-t border-line">
                             <td className="px-4 py-3 text-muted">{index + 1}</td>
                             <td className="px-4 py-3 text-ink">{line.description}</td>
-                            <td className="px-4 py-3 text-muted">{line.unit || "â€”"}</td>
+                            <td className="px-4 py-3 text-muted">{line.unit || "—"}</td>
                             <td className="px-4 py-3 text-muted">
-                              {line.quantity ?? "â€”"}
+                              {line.quantity ?? "—"}
                             </td>
                             <td className="px-4 py-3 text-muted">
-                              {line.rate ?? "â€”"}
+                              {line.rate ?? "—"}
                             </td>
                             <td className="px-4 py-3 text-muted">
-                              {line.amount ?? "â€”"}
+                              {line.amount ?? "—"}
                             </td>
                           </tr>
                         ))}
@@ -175,5 +175,3 @@ export function EstimationResultsPage() {
     </div>
   );
 }
-
-

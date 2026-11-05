@@ -107,7 +107,7 @@ export function ProjectListPage() {
                       </Link>
                     </td>
                     <td className="px-4 py-3 text-muted">
-                      {project.location || "â€”"}
+                      {project.location || "-"}
                     </td>
                     <td className="px-4 py-3 text-muted">
                       {formatNumber(project.budget_cap)}
