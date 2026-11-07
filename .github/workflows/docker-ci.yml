@@ -1,0 +1,26 @@
+
+name: Docker CI
+
+on:
+  push:
+    branches:
+      - dev
+      - feat/ci-cd
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  docker-build:
+    name: Build Docker Images
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Backend Docker Image
+        run: docker build -t aurabuild-backend:ci ./Backend
+
+      - name: Build Frontend Docker Image
+        run: docker build -t aurabuild-frontend:ci ./Frontend
